@@ -12,7 +12,8 @@ body {
 
 .navbar {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 1.5rem;
     padding: 1rem 0;
     border-bottom: 1px solid #eee;
     margin-bottom: 2rem;
@@ -25,6 +26,31 @@ body {
             text-decoration: underline;
         }
     }
+}
+
+.nav-home {
+    display: flex;
+    align-items: center;
+
+    svg {
+        width: 24px;
+        height: 24px;
+        color: #333;
+        transition: color 0.2s ease;
+    }
+
+    &:hover {
+        text-decoration: none !important;
+
+        svg {
+            color: #666;
+        }
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
 }
 
 main {
