@@ -1,13 +1,18 @@
 :root {
     /* PAL SNES Controller Color Palette */
-    --color-red: #E30B17;      
-    --color-yellow: #FFD700;   
-    --color-blue: #0061C5;    
-    --color-green: #00A651;    
-    --color-light-gray: #E8E8E8; 
-    --color-dark-gray: #6E6E6E;    
-    --color-medium-gray: #9E9E9E; 
-    --color-black: #000000;       
+    --color-red: #E30B17;
+    --color-yellow: #FFD700;
+    --color-blue: #0061C5;
+    --color-green: #00A651;
+    --color-light-gray: #E8E8E8;
+    --color-dark-gray: #6E6E6E;
+    --color-medium-gray: #9E9E9E;
+    --color-black: #000000;
+
+    /* Transparent hover colors */
+    --color-yellow-hover: rgba(255, 215, 0, 0.3);
+    --color-blue-hover: rgba(0, 97, 197, 0.3);
+    --color-green-hover: rgba(0, 166, 81, 0.3);
 
     /* Semantic color mappings */
     --color-text: var(--color-black);
@@ -299,9 +304,13 @@ main {
     transition: background-color 0.2s ease, transform 0.2s ease;
 
     &:hover {
-        background-color: var(--color-bg-hover);
+        background-color: var(--color-yellow-hover);
         transform: translateY(-2px);
     }
+}
+
+.section-projects .blog-card:hover {
+    background-color: var(--color-blue-hover);
 }
 
 .blog-icon {
@@ -446,7 +455,7 @@ article {
     }
 
     &:hover {
-        background-color: var(--color-bg-hover);
+        background-color: var(--color-green-hover);
 
         &::before {
             background: var(--color-green);

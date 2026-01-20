@@ -9,7 +9,7 @@
     <p>{{ section.description }}</p>
     {% endif %}
 
-    <div class="blog-grid">
+    <div class="blog-grid section-{{ section.path | trim_start_matches(pat="/") | trim_end_matches(pat="/") | split(pat="/") | first }}">
 {# Show subsections (e.g., project folders) #}
 {% for subsection_path in section.subsections %}
     {% set subsection = get_section(path=subsection_path) %}
