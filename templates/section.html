@@ -3,12 +3,13 @@
 {% block title %}{{ section.title }} | {{ config.title | default(value="Blog") }}{% endblock title %}
 
 {% block content %}
-<h1>{{ section.title }}</h1>
-{% if section.description %}
-<p>{{ section.description }}</p>
-{% endif %}
+<article class="section-page">
+    <h1>{{ section.title }}</h1>
+    {% if section.description %}
+    <p>{{ section.description }}</p>
+    {% endif %}
 
-<div class="blog-grid">
+    <div class="blog-grid">
 {# Show subsections (e.g., project folders) #}
 {% for subsection_path in section.subsections %}
     {% set subsection = get_section(path=subsection_path) %}
@@ -63,5 +64,6 @@
         </p>
     </a>
 {% endfor %}
-</div>
+    </div>
+</article>
 {% endblock content %}
