@@ -98,9 +98,20 @@ body {
     .btn-start:hover rect {
         fill: var(--color-medium-gray);
     }
+
+    .btn-controller {
+        cursor: pointer;
+
+        rect, path {
+            transition: opacity 0.15s ease;
+        }
+
+        &:hover rect {
+            opacity: 0.25;
+        }
+    }
 }
 
-/* Highlight controller buttons when corresponding nav link is hovered */
 .navbar:has(.nav-bio:hover) .btn-red circle {
     fill: #FF6B6B;
     filter: brightness(1.2);
@@ -116,9 +127,61 @@ body {
     filter: brightness(1.2);
 }
 
+.navbar:has(.nav-placeholder:hover) .btn-green circle {
+    fill: #4ADE80;
+    filter: brightness(1.2);
+}
+
+.navbar:has(.btn-red:hover) .nav-bio {
+    color: var(--color-red);
+    text-decoration: underline;
+}
+
+.navbar:has(.btn-yellow:hover) .nav-blog {
+    color: var(--color-yellow);
+    text-decoration: underline;
+}
+
+.navbar:has(.btn-blue:hover) .nav-projects {
+    color: var(--color-blue);
+    text-decoration: underline;
+}
+
+.navbar:has(.btn-green:hover) .nav-placeholder {
+    color: var(--color-green);
+    text-decoration: underline;
+}
+
+.navbar:has(.btn-select:hover) .social-linkedin {
+    color: var(--color-text);
+    transform: scale(1.25);
+
+    img {
+        opacity: 1;
+    }
+}
+
+.navbar:has(.btn-start:hover) .social-github {
+    color: var(--color-text);
+    transform: scale(1.25);
+
+    img {
+        opacity: 1;
+    }
+}
+
+.navbar:has(.social-linkedin:hover) .btn-select rect {
+    fill: var(--color-medium-gray);
+}
+
+.navbar:has(.social-github:hover) .btn-start rect {
+    fill: var(--color-medium-gray);
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
+    flex: 1;
 
     a:nth-child(4n+1):hover {
         color: var(--color-red);
@@ -131,6 +194,44 @@ body {
     }
     a:nth-child(4n):hover {
         color: var(--color-green);
+    }
+}
+
+.nav-socials {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-text-secondary);
+        transition: color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+            color: var(--color-text);
+            transform: scale(1.25);
+        }
+    }
+
+    svg, img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .social-github img {
+        width: 28px;
+        height: 28px;
+    }
+
+    img {
+        opacity: 0.6;
+        transition: opacity 0.2s ease;
+    }
+
+    a:hover img {
+        opacity: 1;
     }
 }
 

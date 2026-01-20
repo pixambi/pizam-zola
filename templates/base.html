@@ -13,10 +13,12 @@
     <nav class="navbar">
         <div class="nav-home" aria-label="Controller Navigation">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 40" fill="none">
-                <!-- Controller body (non-clickable) -->
-                <rect x="2" y="6" width="60" height="28" rx="8" ry="8" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="2"/>
-                <path d="M8 34 Q4 34 4 28 L4 12 Q4 6 10 6" stroke="currentColor" stroke-width="4" fill="none"/>
-                <path d="M56 34 Q60 34 60 28 L60 12 Q60 6 54 6" stroke="currentColor" stroke-width="4" fill="none"/>
+                <!-- Controller body (clickable - goes to home) -->
+                <a href="{{ config.base_url }}" class="btn-controller">
+                    <rect x="2" y="6" width="60" height="28" rx="8" ry="8" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 34 Q4 34 4 28 L4 12 Q4 6 10 6" stroke="currentColor" stroke-width="4" fill="none"/>
+                    <path d="M56 34 Q60 34 60 28 L60 12 Q60 6 54 6" stroke="currentColor" stroke-width="4" fill="none"/>
+                </a>
                 <!-- Select button - LinkedIn -->
                 {% if config.extra.linkedin_url %}
                 <a href="{{ config.extra.linkedin_url }}" class="btn-select" target="_blank" rel="noopener">
@@ -45,8 +47,8 @@
                 <a href="{{ get_url(path='bio') }}" class="btn-red">
                     <circle cx="50" cy="20" r="3.5" fill="#EF4444" stroke="currentColor" stroke-width="0.5"/>
                 </a>
-                <!-- Green button (bottom) - home -->
-                <a href="{{ config.base_url }}" class="btn-green">
+                <!-- Green button (bottom) - placeholder -->
+                <a href="{{ get_url(path='placeholder') }}" class="btn-green">
                     <circle cx="44" cy="26" r="3.5" fill="#22C55E" stroke="currentColor" stroke-width="0.5"/>
                 </a>
             </svg>
@@ -55,6 +57,19 @@
             <a href="{{ get_url(path='bio') }}" class="nav-bio">bio</a>
             <a href="{{ get_url(path='blog') }}" class="nav-blog">blog</a>
             <a href="{{ get_url(path='projects') }}" class="nav-projects">projects</a>
+            <a href="{{ get_url(path='placeholder') }}" class="nav-placeholder">placeholder</a>
+        </div>
+        <div class="nav-socials">
+            {% if config.extra.linkedin_url %}
+            <a href="{{ config.extra.linkedin_url }}" class="social-linkedin" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <img src="{{ get_url(path='icons/linkedin.svg') }}" alt="LinkedIn">
+            </a>
+            {% endif %}
+            {% if config.extra.github_url %}
+            <a href="{{ config.extra.github_url }}" class="social-github" target="_blank" rel="noopener" aria-label="GitHub">
+                <img src="{{ get_url(path='icons/github.svg') }}" alt="GitHub">
+            </a>
+            {% endif %}
         </div>
     </nav>
     <main>
