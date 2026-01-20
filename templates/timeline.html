@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title | default(value="Timeline") }} | {{ config.title | default(value="Blog") }}{% endblock title %}
+
+{% block content %}
+<article class="timeline-page">
+    <h1>{{ section.title | default(value="Timeline") }}</h1>
+    {% if section.content %}
+    <div class="timeline-intro">{{ section.content | safe }}</div>
+    {% endif %}
+
+    <div class="timeline">
+        {# Iterate through year subsections (folders like 2024, 2025, 2026) #}
+        {% for subsection_path in section.subsections %}
+            {% set year_section = get_section(path=subsection_path) %}
+            <div class="timeline-year">
+                <h2 class="timeline-year-heading">{{ year_section.title }}</h2>
+
+                {# Show pages within this year, sorted by date descending #}
+                {% for page in year_section.pages %}
+                <a href="{{ page.permalink }}" class="timeline-entry">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">{{ page.title }}</h3>
+                        {% if page.description %}
+                        <p class="timeline-description">{{ page.description }}</p>
+                        {% endif %}
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</article>
+{% endblock content %}
