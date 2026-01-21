@@ -8,7 +8,7 @@
     --color-dark-gray: #6E6E6E;
     --color-medium-gray: #9E9E9E;
     --color-black: #000000;
-    --color-snes-gray: #D4D0C8; /* Classic SNES console shell color */
+    --color-snes-gray: #E8E4DC; /* Classic SNES console shell color - lightened */
 
     /* Transparent hover colors */
     --color-yellow-hover: rgba(255, 215, 0, 0.3);
@@ -494,5 +494,40 @@ article {
 
     .timeline-entry::before {
         left: -1.5rem;
+    }
+}
+
+.arcade-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: block;
+    z-index: 1000;
+    color: var(--color-text);
+
+    svg {
+        width: 48px;
+        height: 53px;
+        overflow: visible;
+    }
+
+    .screen {
+        transition: fill 0.2s ease, filter 0.2s ease;
+    }
+
+    .coin {
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.2s ease 0.3s;
+    }
+
+    &:hover .screen {
+        fill: var(--color-green);
+        filter: drop-shadow(0 0 8px var(--color-green));
+    }
+
+    &:hover .coin {
+        opacity: 1;
+        transform: translateY(50px);
+        transition: transform 0.3s ease, opacity 0.1s ease;
     }
 }
