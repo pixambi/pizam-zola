@@ -8,6 +8,7 @@
     --color-dark-gray: #6E6E6E;
     --color-medium-gray: #9E9E9E;
     --color-black: #000000;
+    --color-snes-gray: #D4D0C8; /* Classic SNES console shell color */
 
     /* Transparent hover colors */
     --color-yellow-hover: rgba(255, 215, 0, 0.3);
@@ -35,6 +36,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 1rem;
+    background-color: var(--color-snes-gray);
 }
 
 .navbar {
